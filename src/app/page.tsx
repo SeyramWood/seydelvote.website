@@ -1,103 +1,227 @@
-import Image from "next/image";
+'use client'
+import { useState } from 'react';
 
-export default function Home() {
+import {
+  ArrowRight,
+  Check,
+} from 'lucide-react';
+import Image from 'next/image';
+
+import { updateStates } from '@/funtions/generalUpdate';
+
+import { CustomButton } from './_element-component/button/button';
+import { CustomModal } from './_element-component/dialog/modal';
+import { CustomInput } from './_element-component/input/input';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  ParagraphText,
+} from './_element-component/texts/text';
+import { EventComponent } from './_page-components/eventCard';
+
+export default function Page() {
+  const [states, setStates] = useState({
+    openModal: false
+  });
+  const data1 = [
+    { id: 1, item: 'unlimited events' },
+    { id: 2, item: 'Secure payments' },
+    { id: 3, item: '24/7 chat support' },
+    { id: 4, item: 'Event management' },
+    { id: 5, item: 'Custom data collection' },
+  ]
+
+  const events = [
+    { id: 1, itemName: 'Concert', image: '/evnt1.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'Free ticket' },
+    { id: 2, itemName: 'Concert', image: '/evnt2.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'GHC 300' },
+    { id: 3, itemName: 'Concert', image: '/evnt3.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'GHC 300' },
+    { id: 4, itemName: 'Concert', image: '/evnt4.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'Free ticket' },
+  ]
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      <CustomModal
+        open={states.openModal}
+        title={''}
+        content={
+          <div>
+            <div className="grid grid-cols-2 ">
+              <div className="w-full">
+                <picture>
+                  <img src="/evnt1.png" className="w-full " alt="" />
+                </picture>
+              </div>
+              {/* <Image src="/evnt1.png" className="h-full" height={100} width={400} alt="event banner" /> */}
+              <div className="">
+                <div className="h-24 w-24 text-center rounded-full overflow-hidden">
+                  <Image src="/user.jpg" className="w-full h-full" width={100} height={100} alt="contestant avatar" />
+                </div>
+                <Heading3 text={'John Doe'} classname={'text-2xl'} />
+                <div className="flex space-x-2 py-2 text-appGray ">
+                  <ParagraphText text={'Category: '} classname={'text-sm font-light'} />
+                  <ParagraphText text={'User category '} classname={'text-sm font-light'} />
+                </div>
+                <ParagraphText
+                  text={'This category includes events that are located at various venues and differ in duration.'}
+                  classname={'text-xs! text-appGray font-light'}
+                />
+              </div>
+            </div>
+            <div className="flex items-center w-full px-7 pt-5 space-x-3 ">
+              <CustomInput
+              type='number'
+                className='h-10 rounded-4xl '
+                placeholder={'Enter number of votes to cast'}
+                name={'votes'}
+              />
+              <CustomButton
+                view={'primary'}
+                classname='h-10'
+                label={'Proceed'}
+                onClick={() => updateStates(setStates, { openModal: false })} />
+            </div>
+          </div>
+        }
+        onClose={() => updateStates(setStates, { openModal: false })}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+      <div className="px-10 ">
+        <div className="w-1/6 mt-32 ">
+          <hr className="border border-red-500" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="  w-4/6  mt-10 mb-20 ">
+          <Heading1 text={'Vote Online and Buy Tickets for Events with'} classname={''} />
+          <Heading1 text={'Company'} classname={'text-appOrange'} />
+        </div>
+        <div className="w-2/6">
+          <ParagraphText
+            classname='px-3 text-appGray mt-10 mb-2'
+            text={'Enter the unique code of the contestant you want to vote for.'}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="flex space-x-3">
+            <CustomInput className='h-10 rounded-4xl' placeholder={'Enter code to vote'} name={'code'} />
+            <CustomButton
+              view={'secondary'}
+              classname='h-10'
+              label={'Cast vote'}
+              onClick={() => updateStates(setStates, { openModal: true })} />
+          </div>
+        </div>
+      </div>
+
+      <div className=" absolute -translate-y-[32rem] w-full flex justify-end ">
+        <Image src={'/Group.png'} width={500} height={100} alt="" />
+      </div>
+
+      <div className="w-full mt-8 bg-appOrange px-32 pb-20 text-white">
+        <div className="text-white  p-10 text-center">
+          <Heading2 text={' Explore our pricing plans for events of all sizes'} classname={'text-white'} />
+        </div>
+        <div className="text-center">
+          <CustomButton
+            view={'primary'}
+            onClick={() => { }}
+            classname='h-14 border border-white! text-lg!'
+            icon={<ArrowRight size={20} />}
+            label={'See all plans'} />
+        </div>
+
+        <div className="rounded-2xl my-10 text-black p-16 bg-white">
+          <div className="flex pl-[15rem] justify-center">
+            <ParagraphText text={'Your premiere e-voting solution'}
+              classname={'rounded-xl bg-appLightOrange1 px-3 py-3'} />
+          </div>
+          <div className="grid grid-cols-2 ">
+            <div className="">
+              <Image src={'/user1.png'} width={400} height={200} alt='' />
+            </div>
+            <div className="">
+              <Heading3 text={'E-Voting Solution'} classname='my-8' />
+              <ParagraphText text={'Experience the leading e-voting platform designed for secure, efficient and reliable online voting'} classname='mb-10' />
+              <div className="grid grid-cols-2 gap-8 capitalize">
+                {data1.map((item) => (
+                  <div className="text-black" key={item.id}>
+                    <div className="flex items-center space-x-3">
+                      <span className='rounded-full p-3 bg-appLightOrange1'>
+                        <Check className='text-appOrange' />
+                      </span>
+                      <ParagraphText text={item.item} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-2xl text-black p-16 bg-white relative">
+          <div className="flex justify-start">
+            <ParagraphText
+              text={'Event management with ease'}
+              classname={'rounded-xl bg-appLightOrange1 px-3 py-3 text-center'}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 ">
+            <div className="">
+              <div className="font-semibold text-2xl my-8 px-1">
+                Sell Your Event Tickets Online
+              </div>
+              <p className='mb-10'>Seamlessly sell your event tickets online with our fast, free and unlimited platform</p>
+              <div className="grid grid-cols-2 gap-4 capitalize">
+                {data1.map((item) => (
+                  <div className="text-black" key={item.id}>
+                    <div className="flex items-center space-x-3">
+                      <span className='rounded-full p-3 bg-appLightOrange1'>
+                        <Check className='text-appOrange' />
+                      </span>
+                      <span>{item.item}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="">
+              <Image className='rounded-2xl' src={'/evnts.jpg'} width={400} height={1500} alt='' />
+            </div>
+          </div>
+          <div className="absolute h-14 flex justify-center items-center top-0 right-0 p-2 bg-appLightOrange2 rounded-bl-md rounded-tr-xl">
+            <span className="text-white">Coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-32">
+        <div className="flex justify-between my-20">
+          <div className="text-4xl font-semibold">Ongoing Events </div>
+          <div className=""><CustomButton view='secondary' label='View more' /></div>
+        </div>
+        {/* card */}
+        <div className="grid grid-cols-4 mb-20 gap-10">
+          {events.map((item, index) => (
+            <div className="" key={index}>
+              <EventComponent item={{
+                id: 0,
+                itemName: item.itemName,
+                image: item.image,
+                date: item.date,
+                time: item.time,
+                location: item.location,
+                cost: item.cost
+              }} />
+            </div>
+          ))}
+        </div>
+        <div className="flex-col mt-32 justify-center pb-10 items-center">
+          <div className="font-bold text-6xl px-10 text-center">
+            Effortlessly manage events from registration to showtime.
+          </div>
+          <div className="my-8 flex-col justify-center text-center px-40">
+            <CustomInput className='border' name={''} placeholder='Enter your email address' />
+            <CustomButton view='primary' classname='mt-6' label='Subscribe' />
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
