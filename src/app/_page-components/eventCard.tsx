@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 interface EventProps {
     item: {
-        id: number;
         itemName: string;
         image: string;
         date: string;
@@ -10,10 +9,14 @@ interface EventProps {
         location: string;
         cost: string;
     };
+    onClick?: () => void
 }
-export const EventComponent = ({ item }: EventProps) => {
+export const EventComponent = ({ item,onClick }: EventProps) => {
     return (
-        <div className="py-3 hover:bg-appLightOrange1 cursor-pointer hover:scale-100 duration-200 lg:px-6 px-3 shadow-2xl flex-col justify-center text-center rounded-2xl">
+        <div
+        
+        onClick={onClick}
+        className="py-3 hover:bg-appLightOrange1 cursor-pointer hover:scale-100 duration-200 lg:px-6 px-3 shadow-2xl flex-col justify-center text-center rounded-2xl">
             <Image src={item.image} height={100} width={100} alt='' className='w-full ' />
             <div className="py-3">
                 <div className="font-semibold">{item.itemName}</div>
