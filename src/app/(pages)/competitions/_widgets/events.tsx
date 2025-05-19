@@ -42,7 +42,6 @@ export default function Events() {
         {events.map((item, index) => (
           <div className="" key={index}>
             <EventComponent item={{
-              id: 0,
               itemName: item.itemName,
               image: item.image,
               date: item.date,

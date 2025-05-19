@@ -6,6 +6,7 @@ import {
   Check,
 } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { updateStates } from '@/funtions/generalUpdate';
 
@@ -38,6 +39,7 @@ export default function Page() {
     { id: 3, itemName: 'Concert', image: '/evnt3.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'GHC 300' },
     { id: 4, itemName: 'Concert', image: '/evnt4.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'Free ticket' },
   ]
+  const route=useRouter()
   return (
     <div>
       <CustomModal
@@ -77,8 +79,10 @@ export default function Page() {
               <CustomButton
                 view={'primary'}
                 classname='h-10'
-                label={'Proceed'}
-                onClick={() => updateStates(setStates, { openModal: false })} />
+                label={'Proceed to payment'}
+                onClick={() =>{
+                  route.push('/payment')
+                  updateStates(setStates, { openModal: false })} }/>
             </div>
           </div>
         }
@@ -201,7 +205,6 @@ export default function Page() {
           {events.map((item, index) => (
             <div className="" key={index}>
               <EventComponent item={{
-                id: 0,
                 itemName: item.itemName,
                 image: item.image,
                 date: item.date,
