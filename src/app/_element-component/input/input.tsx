@@ -51,7 +51,7 @@ export function CustomInput({
           onChange?.(event);
         }
       }}
-      className={cn('h-12 shadow-none rounded-lg border-none bg-gray-100 text-appGray', className)}
+      className={cn('h-12 hover:ring! hover:ring-appsOrange! shadow-none rounded-lg border-none bg-gray-100 text-appGray', className)}
       {...props}
     />
   );

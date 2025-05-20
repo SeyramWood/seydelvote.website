@@ -39,7 +39,7 @@ export default function Page() {
     { id: 3, itemName: 'Concert', image: '/evnt3.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'GHC 300' },
     { id: 4, itemName: 'Concert', image: '/evnt4.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'Free ticket' },
   ]
-  const route=useRouter()
+  const route = useRouter()
   return (
     <div>
       <CustomModal
@@ -71,7 +71,7 @@ export default function Page() {
             </div>
             <div className="flex items-center w-full px-7 pt-5 space-x-3 ">
               <CustomInput
-              type='number'
+                type='number'
                 className='h-10 rounded-4xl '
                 placeholder={'Enter number of votes to cast'}
                 name={'votes'}
@@ -80,9 +80,10 @@ export default function Page() {
                 view={'primary'}
                 classname='h-10'
                 label={'Proceed to payment'}
-                onClick={() =>{
+                onClick={() => {
                   route.push('/payment')
-                  updateStates(setStates, { openModal: false })} }/>
+                  updateStates(setStates, { openModal: false })
+                }} />
             </div>
           </div>
         }
@@ -138,7 +139,7 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-2 ">
             <div className="">
-              <Image src={'/user1.png'} width={400} height={200} alt='' />
+              <Image src={'/voter.jpg'} width={400} height={200} alt='' />
             </div>
             <div className="">
               <Heading3 text={'E-Voting Solution'} classname='my-8' />
