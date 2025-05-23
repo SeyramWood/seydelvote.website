@@ -10,7 +10,7 @@ import {
   Heading2A,
   Heading3,
   ParagraphText,
-} from '@/app/_element-component/texts/text';
+} from '@/app/(components)/_element-component/texts/text';
 import { updateStates } from '@/funtions/generalUpdate';
 
 interface Nominee {

@@ -1,11 +1,11 @@
 export const Heading1 = ({ text, classname }: { text: string, classname?: string }) => {
     return (
-        <h1 className={` text-7xl font-bold ${classname}`}>{text}</h1>
+        <h1 className={` lg:text-7xl text-2xl font-bold ${classname}`}>{text}</h1>
     )
 }
 export const Heading2 = ({ text, classname }: { text: string, classname?: string }) => {
     return (
-        <h1 className={` ${classname} text-6xl font-bold`}>{text}</h1>
+        <h1 className={` ${classname} lg:text-6xl font-bold`}>{text}</h1>
     )
 }
 export const Heading2A = ({ text, classname }: { text: string, classname?: string }) => {
@@ -30,7 +30,7 @@ export const Heading4 = ({ text,classname }: { text: string,classname?:string })
 }
 export const ParagraphText = ({ text, classname }: { text: string, classname?: string }) => {
     return (
-        <p className={` ${classname}`}>{text}</p>
+        <p className={`lg:text-base text-sm ${classname}`}>{text}</p>
     )
 }
 

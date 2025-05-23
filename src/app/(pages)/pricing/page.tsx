@@ -1,5 +1,9 @@
-import { CustomButton } from '@/app/_element-component/button/button';
-import { ParagraphText } from '@/app/_element-component/texts/text';
+import {
+  CustomButton,
+} from '@/app/(components)/_element-component/button/button';
+import {
+  ParagraphText,
+} from '@/app/(components)/_element-component/texts/text';
 
 type PricingPlan = {
     title: string

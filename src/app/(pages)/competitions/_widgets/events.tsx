@@ -1,7 +1,11 @@
 'use client'
-import { CustomSelect } from '@/app/_element-component/input/input';
-import { CustomPagination } from '@/app/_element-component/input/pagination';
-import { EventComponent } from '@/app/_page-components/eventCard';
+import {
+  CustomSelect,
+} from '@/app/(components)/_element-component/input/input';
+import {
+  CustomPagination,
+} from '@/app/(components)/_element-component/input/pagination';
+import { EventComponent } from '@/app/(components)/_page-components/eventCard';
 
 export default function Events() {
   const events = [
@@ -11,15 +15,15 @@ export default function Events() {
     { id: 4, itemName: 'Concert', image: '/evnt4.png', date: 'Wed, Dec 13, 2022', time: '5:00 PM', location: 'Logical night club', cost: 'Free ticket' },
   ]
   return (
-    <div className="p-10">
-      <div className="flex py-10 justify-between">
+    <div className="lg:p-10 p-5">
+      <div className="lg:flex lg:py-10 space-y-3 py-5 justify-between">
         <div className="font-bold text-4xl  text-appOrange">Competitions</div>
         <div className="flex  items-center">
           <div className="border rounded-2xl flex items-center justify-between">
             {/* inputs */}
 
             <CustomSelect
-              className='h-7 border-none w-60 ring-none active:ring-none selection:bg-none  bg-transparent!'
+              className='h-7 border-none lg:w-60 w-full  ring-none active:ring-none selection:bg-none  bg-transparent!'
               placeholder='Select event period'
               name={''}
               options={[

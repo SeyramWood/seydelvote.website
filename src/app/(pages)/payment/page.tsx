@@ -6,7 +6,7 @@ import {
   PhoneIcon,
 } from 'lucide-react';
 
-import { CustomInput } from '@/app/_element-component/input/input';
+import { CustomInput } from '@/app/(components)/_element-component/input/input';
 
 // import { BankIcon, Phone } from "lucide-react"
 

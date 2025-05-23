@@ -7,8 +7,8 @@ import {
 
 import { useParams } from 'next/navigation';
 
-import { Heading3 } from '@/app/_element-component/texts/text';
-import { EventComponent } from '@/app/_page-components/eventCard';
+import { Heading3 } from '@/app/(components)/_element-component/texts/text';
+import { EventComponent } from '@/app/(components)/_page-components/eventCard';
 import { updateStates } from '@/funtions/generalUpdate';
 
 export default function Page() {

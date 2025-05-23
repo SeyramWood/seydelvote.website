@@ -2,8 +2,8 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
-import Footer from './_page-components/footer';
-import Header from './_page-components/header';
+import Footer from './(components)/_page-components/footer';
+import Header from './(components)/_page-components/header';
 
 const poppins = {
   variable: "--font-poppins",
