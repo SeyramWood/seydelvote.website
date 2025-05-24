@@ -51,13 +51,13 @@ export default function Page() {
             <div className="grid grid-cols-2  ">
               <div className="w-full ">
                 <picture>
-                  <img src="/evnt1.png" className="w-full h-[17rem]" alt="" />
+                  <img src="/evnt1.png" className="w-full h-[15rem] " alt="" />
                 </picture>
               </div>
               {/* <Image src="/evnt1.png" className="h-full" height={100} width={400} alt="event banner" /> */}
               <div className="">
-                <div className="h-24 w-24 text-center rounded-full overflow-hidden">
-                  <Image src="/user.jpg" className="w-full h-full" width={100} height={100} alt="contestant avatar" />
+                <div className="h-24 w-24 border  text-center rounded-full overflow-hidden">
+                  <Image src="/user.jpg" className="w-full  h-full" width={80} height={50} alt="contestant avatar" />
                 </div>
                 <Heading3 text={'John Doe'} classname={'text-2xl'} />
                 <div className="flex space-x-2 py-2 text-appGray ">
@@ -70,21 +70,22 @@ export default function Page() {
                 />
               </div>
             </div>
-            <div className="lg:flex items-center space-y-3 w-full lg:px-7 pt-5 space-x-3 ">
+            <div className="lg:flex pt-6 space-x-3 space-y-4">
               <CustomInput
                 type='number'
-                className='h-10 rounded-4xl '
+                className='h-10 rounded-4xl lg:w-4/6 w-full'
                 placeholder={'Enter number of votes to cast'}
                 name={'votes'}
               />
               <CustomButton
                 view={'primary'}
-                classname='h-10 w-full'
+                classname='h-10 lg:w-2/6  w-full'
                 label={'Proceed to payment'}
                 onClick={() => {
                   route.push('/payment')
                   updateStates(setStates, { openModal: false })
-                }} />
+                }}
+              />
             </div>
           </div>
         }
@@ -98,7 +99,7 @@ export default function Page() {
         </div>
         <div className="  lg:w-4/6  lg:mt-10 mt-3 lg:mb-20 ">
           <Heading1 text={'Vote Online and Buy Tickets for Events with'} classname={''} />
-          <Heading1 text={'Company'} classname={'text-appOrange'} />
+          <Heading1 text={'Pawavote'} classname={'text-appOrange'} />
         </div>
         <div className="lg:w-2/6">
           <ParagraphText
@@ -134,19 +135,19 @@ export default function Page() {
         </div>
 
         <div className="rounded-2xl my-10 text-black lg:p-16 p-5 bg-white">
-          <div className="lg:flex lg:pl-[15rem] justify-center">
-            <ParagraphText text={'Your premiere e-voting solution'}
-              classname={'rounded-xl lg:text-base text-sm bg-appLightOrange1 px-3 py-3'} />
-          </div>
           <div className="grid lg:grid-cols-2 ">
             <div className="lg:block hidden">
-              <Image src={'/voter.jpg'} width={400} height={200} alt='' />
+              <Image src={'/voter.jpg'} className='h-[33rem] rounded' width={400} height={100} alt='' />
             </div>
             <div className="">
-              <Heading3 text={'E-Voting Solution'} classname='my-8' />
+              <div className="lg:flex mb-6  justify-start">
+                <ParagraphText text={'Your premiere e-voting solution'}
+                  classname={'rounded-xl lg:text-base text-sm bg-appLightOrange1 px-3 py-3'} />
+              </div>
+              <Heading3 text={'E-Voting Solution'} classname='mb-2' />
               <ParagraphText
                 text={'Experience the leading e-voting platform designed for secure, efficient and reliable online voting'}
-                classname='mb-10'
+                classname='mb-7'
               />
               <div className="grid grid-cols-2 gap-8 capitalize">
                 {data1.map((item) => (
@@ -164,21 +165,18 @@ export default function Page() {
           </div>
         </div>
         <div className="rounded-2xl text-black lg:p-16 p-5 bg-white relative">
-          <div className="flex lg:justify-start">
-            <ParagraphText
-              text={'Event management with ease'}
-              classname={'rounded-xl bg-appLightOrange1 px-3 py-3 lg:text-center'}
-            />
-          </div>
+
 
           <div className="grid lg:grid-cols-2 ">
             <div className="">
-              <Heading3 text={'Sell Your Event Tickets Online'} classname='font-semibold text-2xl my-8 px-1' />
-              {/* <div className="font-semibold text-2xl my-8 px-1">
-                Sell Your Event Tickets Online
-              </div> */}
-              <ParagraphText text='Sell your event tickets online with our fast, free and unlimited platform' classname='mb-10' />
-              {/* <p className='mb-10'>Seamlessly sell your event tickets online with our fast, free and unlimited platform</p> */}
+              <div className="flex mb-6 lg:justify-start">
+                <ParagraphText
+                  text={'Event management with ease'}
+                  classname={'rounded-xl bg-appLightOrange1 px-3 py-3 lg:text-center'}
+                />
+              </div>
+              <Heading3 text={'Sell Your Event Tickets Online'} classname='font-semibold text-2xl mb-3 px-1' />
+              <ParagraphText text='Sell your event tickets online with our fast, free and unlimited platform' classname='mb-7' />
               <div className="grid grid-cols-2 gap-4 capitalize">
                 {data1.map((item) => (
                   <div className="text-black" key={item.id}>
@@ -192,12 +190,11 @@ export default function Page() {
                 ))}
               </div>
             </div>
-            <div className="lg:block hidden">
-              <Image className='rounded-2xl' src={'/evnts.jpg'} width={400} height={1500} alt='' />
+            <div className="lg:block ml-5 hidden">
+              <Image className='rounded h-[33rem]' src={'/evnts.jpg'} width={400} height={100} alt='' />
             </div>
           </div>
-          <div className="absolute lg:h-14 h-8 flex justify-center items-center top-0 right-0 p-2 bg-green-500 rounded-bl-md rounded-tr-xl">
-            {/* <span className="text-white">Coming soon</span> */}
+          <div className="absolute lg:h-14 h-8 flex justify-center items-center top-0 right-0 p-2 bg-orange-400 rounded-bl-md rounded-tr-xl">
             <ParagraphText classname='text-white' text='coming soon' />
           </div>
         </div>
@@ -207,7 +204,7 @@ export default function Page() {
         <div className="lg:flex text-center justify-between lg:my-20 my-9">
           <Heading2A text='Ongoing events' />
           {/* <div className="text-4xl font-semibold">Ongoing Events </div> */}
-          <div className="text-center mt-2"><CustomButton onClick={()=>route.push('/competitions')} view='secondary' label='View more' /></div>
+          <div className="text-center mt-2"><CustomButton onClick={() => route.push('/competitions')} view='secondary' label='View more' /></div>
         </div>
         {/* card */}
         <div className="grid lg:grid-cols-4 grid-cols-2 lg:mb-20 mb-9 lg:gap-10 gap-7">

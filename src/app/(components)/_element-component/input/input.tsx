@@ -64,6 +64,7 @@ interface RideShareSelectProps {
   placeholder?: string;
   value?: string;
   name:string
+  defaultValue?:string
 }
 
 export function CustomSelect({
@@ -77,7 +78,7 @@ export function CustomSelect({
 }: RideShareSelectProps) {
   return (
     <Select onValueChange={onChange} value={value} {...props}>
-      <SelectTrigger className={cn('shadow-none', className)}>
+      <SelectTrigger className={cn('shadow-none h-12! selection:border-0! active:ring-0! hover:ring-appsOrange!  rounded-lg border-none bg-gray-100 text-appGray', className)}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 import { updateStates } from '@/funtions/generalUpdate';
 
 import { CustomInput } from '../_element-component/input/input';
-import { CustomDropdown } from '../_element-component/menu/menu';
 
 export default function Header() {
     const router = useRouter();
@@ -31,20 +30,20 @@ export default function Header() {
         // },
         {
             name: 'Events',
-            url: '/competitions'
+            url: '/events'
         },
-        {
-            name: 'Products',
-            url: '/products',
-            children: [{
-                label: 'E-voting',
-                onClick: () => console.log('dfdfdfdf')
-            }, {
-                label: 'Ticketing',
-                onClick: () => console.log('dfdfdfdf')
-            }
-            ]
-        },
+        // {
+        //     name: 'Products',
+        //     url: '/products',
+        //     children: [{
+        //         label: 'E-voting',
+        //         onClick: () => console.log('dfdfdfdf')
+        //     }, {
+        //         label: 'Ticketing',
+        //         onClick: () => console.log('dfdfdfdf')
+        //     }
+        //     ]
+        // },
         {
             name: 'Pricing',
             url: '/pricing'
@@ -65,13 +64,13 @@ export default function Header() {
                 key={index}
                 className="hover:font-700 hover:text-appOrange cursor-pointer text-md hover:underline lg:decoration-[0.18em] lg:underline-offset-14"
             >
-                {item.name === 'Products' ? (
+                {/* {item.name === 'Products' ? (
                     <CustomDropdown triggerLabel={item.name} items={item.children || []} />
-                ) : (
+                ) : ( */}
                     <span onClick={() => handleRoute(item.url)}>
                         {item.name}
                     </span>
-                )}
+                {/* )} */}
             </span>
         ))
     );

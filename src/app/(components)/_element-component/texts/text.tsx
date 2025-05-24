@@ -20,7 +20,7 @@ export const Heading2B = ({ text, classname }: { text: string, classname?: strin
 }
 export const Heading3 = ({ text,classname }: { text: string,classname?:string }) => {
     return (
-        <h1 className={`${classname} font-semibold text-2xl`}>{text}</h1>
+        <h1 className={`${classname}text-sm font-semibold lg:text-2xl`}>{text}</h1>
     )
 }
 export const Heading4 = ({ text,classname }: { text: string,classname?:string }) => {

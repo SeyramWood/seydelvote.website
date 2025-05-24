@@ -28,7 +28,7 @@ export function CustomButton({
         <Button
             type={type}
             disabled={disabled}
-            className={`cursor-pointer h-12  rounded-4xl py-2 ${props.classname} +
+            className={`cursor-pointer h-10  rounded-4xl py-2 ${props.classname} +
      ${view === 'primary' ? 'bg-appOrange border-appOrange text-white hover:bg-orange-400' :
                     view === 'danger' ? 'bg-red-600 text-white hover:bg-red-400 hover:text-text' :
                         view === 'tertiary' ? 'bg-appGray text-white hover:bg-rideshareGrey3 hover:text-rideshareRed' :
